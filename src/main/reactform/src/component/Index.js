@@ -1,4 +1,6 @@
-import from ''
+import { BrowserRouter, Routes, Route } from'react-router-dom';
+import Header from './Header';
+import Main from './Main'
 
 export default function Index( props ){
     return(<>
@@ -7,7 +9,8 @@ export default function Index( props ){
             <BrowserRouter>
                 <Header/>
                 <Routes >
-                    <Route path='컴포넌트URL' element = { <컴포넌트명 /> } />
+                    {/*Main*/}
+                    <Route path='/' element = { <Main /> } />
                 </Routes >
             </BrowserRouter>
 

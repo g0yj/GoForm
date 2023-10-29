@@ -1,7 +1,9 @@
-package GoForm.model.entity;
+package petplaza.model.entity;
 
 import lombok.*;
-import org.springframework.context.annotation.Configuration;
+import org.hibernate.annotations.ColumnDefault;
+import petplaza.model.dto.AdminDto;
+import petplaza.model.dto.MemberDto;
 
 import javax.persistence.*;
 
@@ -9,7 +11,7 @@ import javax.persistence.*;
 @Table(name="member")
 @AllArgsConstructor@NoArgsConstructor
 @Getter@Setter@ToString@Builder
-public class MemberEntity {
+public class MemberEntity extends BaseTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mno;
@@ -23,5 +25,16 @@ public class MemberEntity {
     private String mphone;
 
 
+    public MemberDto toDto(){
+        return MemberDto.builder()
+                .mno(this.getMno())
+                .mid(this.getMid())
+                .mpw(this.getMpw())
+                .mname(this.getMname())
+                .mphone(this.getMphone())
+                .cdate(this.getCdate())
+                .udate(this.getUdate())
+                .build();
+    }
 
 }

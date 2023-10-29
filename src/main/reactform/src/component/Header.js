@@ -1,21 +1,31 @@
 import { Link } from 'react-router-dom'
 import styles from '../css/header.css';
+
+//로고 이미지 호출
+//import logoimg from '/'
+
 export default function Header( props ){
     return(<>
         <header>
-            <div className="logo">로고</div>
+            <Link to='/'>
+                <div className="logo">로고
+                    {/*
+                    <img src={logoimg} className=""/>
+                    */}
+                </div>
+            </Link>
+
             <div className="menuBox">
-                <div className="top">
-                    <ul>
-                        <li>회원가입</li>
-                        <li>로그인</li>
-                        <li>로그아웃</li>
-                    </ul>
-                </div>
-                <div className="bottom">
-                    <li>폼작성</li>
-                    <li>업체</li>
-                </div>
+                <ul>
+                    <li>회원관리</li>
+                    <li>거래처관리</li>
+                    <li>제품관리</li>
+                    <li>주문관리</li>
+                    <li>재고관리</li>
+                    <li>발주관리</li>
+                    <li>일정관리</li>
+                </ul>
+
             </div>
         </header>
         </>)
